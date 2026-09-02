@@ -1,0 +1,23 @@
+Branch Naming Convention
+feature/   → Add something new
+test/      → Add/change tests
+fix/       → Fix something broken
+refactor/  → Improve existing code
+chore/     → Project maintenance
+
+
+chore vs refactor
+This is where it can get confusing.
+Refactor:
+"I'm changing the code structure to make it cleaner/better, but functionality stays the same."
+
+refactor/login-page
+refactor/base-page
+refactor/fixtures
+
+Chore:
+"I'm maintaining/configuring the project."
+
+chore/update-dependencies
+chore/update-gitignore
+chore/setup-github-actions
