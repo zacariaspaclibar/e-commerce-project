@@ -5,5 +5,5 @@ class LoginPageLocators:
         self.login_btn = page.get_by_role('button',name='Login')
         
         #Fields 
-        self.email_field = page.get_by_placeholder('email@example.com')
-        self.password_field = page.get_by_placeholder('enter your passsword')
+        self.email_field = page.get_by_role('textbox',name='email@example.com')
+        self.password_field = page.get_by_role('textbox',name='enter your passsword')

@@ -9,11 +9,11 @@ class RegisterPageLocator:
 
 
         # Fields
-        self.firstName_field = page.get_by_placeholder('First Name')
-        self.lastName_field = page.get_by_placeholder('Last Name')
-        self.email_field = page.get_by_placeholder('email@example.com')
-        self.phone_field = page.get_by_placeholder('enter your number')
-        self.password_field = page.get_by_placeholder('Passsword')
-        self.confirm_password_field = page.get_by_placeholder('Confirm Passsword')
+        self.firstName_field = page.get_by_role('textbox',name='First Name')
+        self.lastName_field = page.get_by_role('textbox',name='Last Name')
+        self.email_field = page.get_by_role('textbox',name='email@example.com')
+        self.phone_field = page.get_by_role('textbox',name='enter your number')
+        self.password_field = page.get_by_role('textbox',name='Passsword')
+        self.confirm_password_field = page.get_by_role('textbox',name='Confirm Passsword')
         self.age_field = page.get_by_role('checkbox',name=' I am 18 year or Older ')
 
