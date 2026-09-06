@@ -7,4 +7,6 @@ def browser_init(playwright:Playwright):
     browser = playwright.chromium.launch(headless= False, slow_mo = 1000)
     context = browser.new_context()
     page = context.new_page()
-    return page
+    yield page
+    context.close()
+    browser.close()

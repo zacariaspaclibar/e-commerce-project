@@ -1,5 +1,8 @@
+
 from playwright.sync_api import Page
-class RegisterPageLocator:
+
+
+class RegisterPageLocators:
     def __init__(self,page:Page):
         # Buttons
         self.register_btn = page.get_by_role('link',name='Register')
@@ -9,11 +12,14 @@ class RegisterPageLocator:
 
 
         # Fields
-        self.firstName_field = page.get_by_role('textbox',name='First Name')
-        self.lastName_field = page.get_by_role('textbox',name='Last Name')
-        self.email_field = page.get_by_role('textbox',name='email@example.com')
-        self.phone_field = page.get_by_role('textbox',name='enter your number')
-        self.password_field = page.get_by_role('textbox',name='Passsword')
-        self.confirm_password_field = page.get_by_role('textbox',name='Confirm Passsword')
-        self.age_field = page.get_by_role('checkbox',name=' I am 18 year or Older ')
+        self.firstName_field = page.get_by_placeholder('First Name')
+        self.lastName_field = page.get_by_placeholder('Last Name')
+        self.email_field = page.get_by_placeholder('email@example.com')
+        self.phone_field = page.get_by_placeholder('enter your number')
+        self.password_field = page.get_by_label('Password')
+        self.confirm_password_field = page.get_by_placeholder('Confirm Passsword')
 
+        #Checkbox
+        self.age_checkbox = page.get_by_role("checkbox", name=" I am 18 year or Older ")
+        self.occupation = page.get_by_role("combobox")
+        self.gender = page.get_by_role("radio", name="Male", exact=True)
