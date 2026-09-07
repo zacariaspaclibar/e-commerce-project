@@ -6,7 +6,7 @@ class RegisterPageLocators:
     def __init__(self,page:Page):
          # Alert
         self.success_alert = page.get_by_text("Registered Successfully")
-        self.error_alert = page.get_by_role("alert", name="User already exisits with")
+        self.error_alert = page.get_by_text("User already exisits with")
         
         #Heading
         self.account_successfully_created_text = page.get_by_role("heading", name="Account Created Successfully")
@@ -31,4 +31,11 @@ class RegisterPageLocators:
         self.occupation = page.get_by_role("combobox")
         self.gender = page.get_by_role("radio", name="Male", exact=True)
 
-       
+        #Required field - Error message
+        self.password_not_match_text = page.get_by_text("Password and Confirm Password must match with each other.")
+        self.first_name_required_text = page.get_by_text("*First Name is required")
+        self.email_required_text = page.get_by_text("*Email is required")
+        self.phone_number_required_text = page.get_by_text("*Phone Number is required")
+        self.password_required_text = page.get_by_text("*Password is required")
+        self.confirm_password_required_text = page.get_by_text("Confirm Password is required")
+        self.checkbox_required_text = page.get_by_text("*Please check above checkbox")
