@@ -6,6 +6,7 @@ class RegisterPageLocators:
     def __init__(self,page:Page):
          # Alert
         self.success_alert = page.get_by_text("Registered Successfully")
+        self.error_alert = page.get_by_role("alert", name="User already exisits with")
         
         #Heading
         self.account_successfully_created_text = page.get_by_role("heading", name="Account Created Successfully")

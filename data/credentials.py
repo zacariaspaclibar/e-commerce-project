@@ -5,6 +5,7 @@ import string
 FIRSTNAME = 'zac'
 LASTNAME = 'pac'
 EMAIL = f'zac_{datetime.now().strftime('%Y%m%d%H%M%S')}@gmail.com'
+EXISTING_EMAIL = 'zacpac@gmail.com'
 PHONE_NUMBER = '1234567890'
 PASSWORD = 'P@ssw0rd123!'
 CONFIRM_PASSWORD = PASSWORD
