@@ -11,11 +11,10 @@ from data import credentials
     ]
 )
 def test_account_successfully_register(browser_init,entry_point):
-    loginPage = LoginPage(browser_init)
-    loginPage.navigate()
-
+    login_page = LoginPage(browser_init)
     register_page = RegisterPage(browser_init)
-    register_page.registration_entry_point(entry_point)
+    login_page.navigate()
+    login_page.registration_entry_point(entry_point)
     register_page.account_registration(
         credentials.FIRSTNAME,
         credentials.LASTNAME,
@@ -28,11 +27,12 @@ def test_account_successfully_register(browser_init,entry_point):
 
 
 def test_email_already_exist(browser_init):
-    loginPage = LoginPage(browser_init)
-    loginPage.navigate()
-
+    login_page = LoginPage(browser_init)
     register_page = RegisterPage(browser_init)
-    register_page.register_btn()
+
+    login_page.navigate()
+    login_page.register()
+
     register_page.account_registration(
         credentials.FIRSTNAME,
         credentials.LASTNAME,
@@ -44,11 +44,10 @@ def test_email_already_exist(browser_init):
     register_page.email_exist_error()
 
 def test_password_not_match(browser_init):
-    loginPage = LoginPage(browser_init)
-    loginPage.navigate()
-
+    login_page = LoginPage(browser_init)
+    login_page.navigate()
     register_page = RegisterPage(browser_init)
-    register_page.register_btn()
+    login_page.register()
     register_page.account_registration(
         credentials.FIRSTNAME,
         credentials.LASTNAME,
@@ -60,11 +59,11 @@ def test_password_not_match(browser_init):
     register_page.password_unmatch()
 
 def test_empty_field(browser_init):
-    loginPage = LoginPage(browser_init)
-    loginPage.navigate()
-
+    login_page = LoginPage(browser_init)
     register_page = RegisterPage(browser_init)
-    register_page.register_btn()
+
+    login_page.navigate()
+    login_page.register()
     register_page.empty_field()
 
 

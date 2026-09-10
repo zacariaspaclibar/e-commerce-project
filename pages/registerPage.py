@@ -47,14 +47,8 @@ class RegisterPage:
         self.registerLocators.register_page_btn.click()
         self.empty_field_error()
 
-# Regitsration button entry point for the actual registration flow
-    def register_btn(self):
-         self.registerLocators.register_btn.click()
-    def dont_have_account_btn(self):
-         self.registerLocators.dont_have_an_account_btn.click()
-
-    def registration_entry_point(self,entry_point):
-         if entry_point == "Register":
-              self.register_btn()
-         elif entry_point == "Don't have an account?":
-              self.dont_have_account_btn()
+# # Regitsration button entry point for the actual registration flow
+#     def register_btn(self):
+#          self.registerLocators.register_btn.click()
+#     def dont_have_account_btn(self):
+#          self.registerLocators.dont_have_an_account_btn.click()

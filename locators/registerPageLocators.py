@@ -12,9 +12,7 @@ class RegisterPageLocators:
         self.account_successfully_created_text = page.get_by_role("heading", name="Account Created Successfully")
 
         # Buttons
-        self.register_btn = page.get_by_role('link',name='Register')
         self.register_page_btn = page.get_by_role('button',name='Register')
-        self.dont_have_an_account_btn = page.get_by_text("Don't have an account?")
         self.already_have_account_btn = page.get_by_role('link',name='Already have an account? Login here')
 
 
