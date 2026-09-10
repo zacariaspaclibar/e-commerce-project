@@ -1,10 +1,12 @@
-from datetime import datetime
+import uuid
 import random
 import string
 
 FIRSTNAME = 'zac'
 LASTNAME = 'pac'
-EMAIL = f'zac_{datetime.now().strftime('%Y%m%d%H%M%S')}@gmail.com'
+def generated_email():
+    return f'zac_{uuid.uuid4().hex[:8]}@gmail.com'
+
 EXISTING_EMAIL = 'zacpac@gmail.com'
 PHONE_NUMBER = '1234567890'
 PASSWORD = 'P@ssw0rd123!'

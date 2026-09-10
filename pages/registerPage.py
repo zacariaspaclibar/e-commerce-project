@@ -1,13 +1,12 @@
 from playwright.sync_api import expect
 from locators.registerPageLocators import RegisterPageLocators
-from pages.loginPage import LoginPage
 
 class RegisterPage:
     def __init__(self,page):
         self.page = page
-        self.loginPage = LoginPage(self.page)
         self.registerLocators = RegisterPageLocators(self.page)
-        
+
+# FILLING UP THE REGISTRATION FORM
     def register_user_fields(self, first_name, last_name, email, phone, password, confirm_password):
         self.registerLocators.firstName_field.fill(first_name)
         self.registerLocators.lastName_field.fill(last_name)
@@ -18,6 +17,7 @@ class RegisterPage:
         self.registerLocators.password_field.fill(password)
         self.registerLocators.confirm_password_field.fill(confirm_password)
 
+# Expect - Messages for the scenarios
     def successully_register(self):
             expect(self.registerLocators.success_alert).to_be_visible()
             expect(self.registerLocators.account_successfully_created_text).to_be_visible()
@@ -36,16 +36,25 @@ class RegisterPage:
         expect(self.registerLocators.confirm_password_required_text).to_be_visible()
         expect(self.registerLocators.checkbox_required_text).to_be_visible()
           
-
+# Registration flow
     def account_registration(self,first_name, last_name, email, phone, password, confirm_password):
-        self.loginPage.navigate()
-        self.registerLocators.register_btn.click()
         self.register_user_fields(first_name, last_name, email, phone, password, confirm_password)
         self.registerLocators.age_checkbox.click()
         self.registerLocators.register_page_btn.click()
         
+# No fields are filled up        
     def empty_field(self):
-        self.loginPage.navigate()
-        self.registerLocators.register_btn.click()
         self.registerLocators.register_page_btn.click()
         self.empty_field_error()
+
+# Regitsration button entry point for the actual registration flow
+    def register_btn(self):
+         self.registerLocators.register_btn.click()
+    def dont_have_account_btn(self):
+         self.registerLocators.dont_have_an_account_btn.click()
+
+    def registration_entry_point(self,entry_point):
+         if entry_point == "Register":
+              self.register_btn()
+         elif entry_point == "Don't have an account?":
+              self.dont_have_account_btn()

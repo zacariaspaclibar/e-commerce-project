@@ -1,7 +1,6 @@
 from playwright.sync_api import Playwright
 import pytest
 
-
 @pytest.fixture
 def browser_init(playwright:Playwright):
     browser = playwright.chromium.launch(headless= False, slow_mo = 1000)
