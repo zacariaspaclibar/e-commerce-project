@@ -23,7 +23,7 @@ def test_account_successfully_register(browser_init,entry_point):
         credentials.PASSWORD,
         credentials.CONFIRM_PASSWORD
     )
-    register_page.successully_register()
+    register_page.verify_registration_success()
 
 
 def test_email_already_exist(browser_init):
@@ -41,7 +41,7 @@ def test_email_already_exist(browser_init):
         credentials.PASSWORD,
         credentials.CONFIRM_PASSWORD
     )
-    register_page.email_exist_error()
+    register_page.verify_email_exist()
 
 def test_password_not_match(browser_init):
     login_page = LoginPage(browser_init)
@@ -56,15 +56,15 @@ def test_password_not_match(browser_init):
         credentials.PASSWORD,
         credentials.INCORRECT_CONFIRM_PASSWORD
     )
-    register_page.password_unmatch()
+    register_page.verify_password_mismatch()
 
-def test_empty_field(browser_init):
+def test_registration_empty_field(browser_init):
     login_page = LoginPage(browser_init)
     register_page = RegisterPage(browser_init)
 
     login_page.navigate()
     login_page.register()
-    register_page.empty_field()
+    register_page.registration_empty_field()
 
 
 

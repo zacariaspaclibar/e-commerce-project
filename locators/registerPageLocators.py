@@ -1,9 +1,6 @@
 
-from playwright.sync_api import Page
-
-
 class RegisterPageLocators:
-    def __init__(self,page:Page):
+    def __init__(self,page):
          # Alert
         self.success_alert = page.get_by_text("Registered Successfully")
         self.error_alert = page.get_by_text("User already exisits with")

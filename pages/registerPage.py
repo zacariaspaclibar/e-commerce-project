@@ -18,17 +18,17 @@ class RegisterPage:
         self.registerLocators.confirm_password_field.fill(confirm_password)
 
 # Expect - Messages for the scenarios
-    def successully_register(self):
+    def verify_registration_success(self):
             expect(self.registerLocators.success_alert).to_be_visible()
             expect(self.registerLocators.account_successfully_created_text).to_be_visible()
 
-    def email_exist_error(self):
+    def verify_email_exist(self):
          expect(self.registerLocators.error_alert).to_be_visible()
 
-    def password_unmatch(self):
+    def verify_password_mismatch(self):
          expect(self.registerLocators.password_not_match_text).to_be_visible()
 
-    def empty_field_error(self):
+    def verify_registration_required_field_error(self):
         expect(self.registerLocators.first_name_required_text).to_be_visible()
         expect(self.registerLocators.email_required_text).to_be_visible()
         expect(self.registerLocators.phone_number_required_text).to_be_visible()
@@ -43,12 +43,6 @@ class RegisterPage:
         self.registerLocators.register_page_btn.click()
         
 # No fields are filled up        
-    def empty_field(self):
+    def registration_empty_field(self):
         self.registerLocators.register_page_btn.click()
-        self.empty_field_error()
-
-# # Regitsration button entry point for the actual registration flow
-#     def register_btn(self):
-#          self.registerLocators.register_btn.click()
-#     def dont_have_account_btn(self):
-#          self.registerLocators.dont_have_an_account_btn.click()
+        self.verify_registration_required_field_error()
