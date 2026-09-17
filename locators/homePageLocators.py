@@ -1,10 +1,7 @@
-from playwright.sync_api import Page
-
-
 class HomePageLocators:
-    def __init__(self,page:Page):
+    def __init__(self,page):
         # Buttons
-        self.blinking_green_btn = page.get_by_role('button',name='Get Shortlisted by Recruiters - Take QA Skill Assessments on TechSmartHire')
+        self.blinking_green_btn = page.get_by_role('link',name= "🎯 I'll help you prepare for your next QA job — Explore the QA Career Accelerator.")
         self.view_btn = page.get_by_role('button',name=' View')
         self.add_to_cart_btn = page.get_by_role('button',name=' Add To Cart')
         self.cart_btn = page.get_by_role('button',name='  Cart ')
