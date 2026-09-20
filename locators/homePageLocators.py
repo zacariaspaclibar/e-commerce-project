@@ -17,3 +17,4 @@ class HomePageLocators:
 
         #Successfully Login Message
         self.login_success_msg = page.get_by_label("Login Successfully")
+        
