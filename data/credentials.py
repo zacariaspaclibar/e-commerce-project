@@ -27,3 +27,5 @@ def generate_password():
 
 
 INCORRECT_CONFIRM_PASSWORD = generate_password()
+
+BASED_URL = 'https://rahulshettyacademy.com/client'

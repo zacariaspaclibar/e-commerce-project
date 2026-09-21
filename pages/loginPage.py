@@ -1,5 +1,6 @@
 from playwright.sync_api import expect
 
+from data import credentials
 from locators.loginPageLocators import LoginPageLocators
 
 
@@ -9,7 +10,7 @@ class LoginPage:
         self.loginLocators = LoginPageLocators(page)
 
     def navigate(self):
-        self.page.goto('https://rahulshettyacademy.com/client',wait_until="domcontentloaded", timeout=60000)
+        self.page.goto(credentials.BASED_URL,wait_until="domcontentloaded", timeout=60000)
 
     def register(self):
         self.loginLocators.register_btn.click()
