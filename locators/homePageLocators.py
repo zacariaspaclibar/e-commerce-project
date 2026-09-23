@@ -1,5 +1,8 @@
+from playwright.sync_api import Page
+
+
 class HomePageLocators:
-    def __init__(self,page):
+    def __init__(self,page:Page):
         # Buttons
         self.blinking_green_btn = page.get_by_role('link',name= "🎯 I'll help you prepare for your next QA job — Explore the QA Career Accelerator.")
         self.view_btn = page.get_by_role('button',name=' View')
@@ -13,7 +16,10 @@ class HomePageLocators:
         self.max_price_range_field = page.get_by_role('textbox',name='Max Price')
 
         #Error Message
-        self.homepage_error_msg = page.get_by_label("No Products Found")
+        self.error_product_not_found = page.get_by_label("No Products Found")
+        
+        #TEXT RESULT Messsage
+        self.show_result = page.locator('div#res')
 
         #Successfully Login Message
         self.login_success_msg = page.get_by_label("Login Successfully")
