@@ -1,5 +1,4 @@
 import pytest
-
 from pages.Homepage import HomePage
 
 def test_green_banner(authenticated_page):
