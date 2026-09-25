@@ -26,6 +26,4 @@ def test_filter_by_name(authenticated_page,product_name):
 def test_filter_by_price(authenticated_page,price_range_min,price_range_max):
     home_page = HomePage(authenticated_page)
     home_page.filter_by_price(price_range_min,price_range_max)
-    
-    
-    
+

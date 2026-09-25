@@ -1,0 +1,11 @@
+import pytest
+from pages.Homepage import HomePage
+
+@pytest.mark.parametrize('entry_point',[
+    'product_page','home_page'
+])
+def test_add_to_cart(authenticated_page,entry_point):
+    home_page = HomePage(authenticated_page)
+    home_page.add_to_cart(entry_point)
+    home_page.verify_product_added()
+    home_page.verify_product_added_banner()

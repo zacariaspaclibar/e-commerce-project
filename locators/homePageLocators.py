@@ -1,3 +1,5 @@
+import re
+
 from playwright.sync_api import Page
 
 
@@ -5,9 +7,10 @@ class HomePageLocators:
     def __init__(self,page:Page):
         # Buttons
         self.blinking_green_btn = page.get_by_role('link',name= "🎯 I'll help you prepare for your next QA job — Explore the QA Career Accelerator.")
-        self.view_btn = page.get_by_role('button',name=' View')
+        self.view_btn = page.get_by_role('button',name=' View').first
         self.add_to_cart_btn = page.get_by_role('button',name=' Add To Cart')
-        self.cart_btn = page.get_by_role('button',name='  Cart ')
+        self.product_add_to_cart_btn = page.get_by_role('button',name='Add to Cart')
+        self.cart_btn = page.get_by_role('button', name='\xa0 Cart ')
         self.order_btn = page.get_by_role('button',name='  ORDERS')
 
         #Fields
@@ -24,3 +27,4 @@ class HomePageLocators:
         #Successfully Login Message
         self.login_success_msg = page.get_by_label("Login Successfully")
         
+        self.product_added_msg = page.get_by_text('Product Added To Cart')
