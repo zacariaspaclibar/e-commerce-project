@@ -10,8 +10,10 @@ def test_delete_product(authenticated_page,entry_point):
     home_page = HomePage(authenticated_page)
     home_page.add_to_cart(entry_point)
     cart_count = home_page.verify_product_added()
-    if cart_count == 1:
+    if cart_count > 0:
         home_page.home_page_locators.cart_btn.nth(0).click()
     cart_page = CartPage(authenticated_page)
-    cart_page.cart_Page_Locator.delete_btn.click()
+    cart_delete_btn = cart_page.cart_Page_Locator.delete_btn
+    for i in range(cart_delete_btn.count()):
+        cart_delete_btn.nth(i).click()
     expect(cart_page.cart_Page_Locator.no_product_banner).to_be_visible()
