@@ -38,9 +38,7 @@ class HomePage:
         else: 
             expect(self.home_page_locators.error_product_not_found).to_be_visible()
             
-            
-            
-    
+        
     def verify_product_added_banner(self):
         expect(self.home_page_locators.product_added_msg).to_be_visible()
         
@@ -50,6 +48,7 @@ class HomePage:
         result_count = int(cart_count.group())
         if result_count > 0:
             expect(self.home_page_locators.cart_btn.nth(0)).to_contain_text(str(result_count))
+        return result_count
    
     def add_to_cart(self,entry_point):
         if entry_point == 'product_page':
