@@ -25,7 +25,7 @@ class LoginPage:
             self.dont_have_account()
             
     
-    def verify_login_success(self,status):
+    def verify_login_status(self,status):
             if status:
                 expect(self.loginLocators.alert_login_success).to_be_visible()
             else:

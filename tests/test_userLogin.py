@@ -13,7 +13,7 @@ def test_login_successfully(browser_init,username,password,status):
     login_page = LoginPage(browser_init)
     login_page.navigate()
     login_page.account_login(username,password)
-    login_page.verify_login_success(status)
+    login_page.verify_login_status(status)
 
 def test_login_empty_field(browser_init):
     login_page = LoginPage(browser_init)
