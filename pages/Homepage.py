@@ -44,15 +44,39 @@ class HomePage:
         
     def verify_product_added(self):
         cart_btn = self.home_page_locators.cart_btn.nth(0).text_content()
-        cart_count = re.search(r'\d',cart_btn)
+        cart_count = re.search(r'\d+',cart_btn)
         result_count = int(cart_count.group())
         if result_count > 0:
             expect(self.home_page_locators.cart_btn.nth(0)).to_contain_text(str(result_count))
         return result_count
    
-    def add_to_cart(self,entry_point):
+    def add_to_cart(self,entry_point,number_of_order):
         if entry_point == 'product_page':
             self.home_page_locators.view_btn.click()
             self.home_page_locators.product_add_to_cart_btn.click()
         elif entry_point == 'home_page':
-            self.home_page_locators.add_to_cart_btn.first.click()
+            return self.number_of_orders(number_of_order)
+    
+    
+    def number_of_orders(self,number_of_order):
+        products = []
+        if number_of_order > 1:
+            for i in range(number_of_order):
+                self.home_page_locators.add_to_cart_btn.nth(i).click()
+                products.append(
+                    {
+                        'name': self.home_page_locators.product_name.nth(i).text_content().strip(),
+                        'price': self.home_page_locators.product_price.nth(i).text_content().strip()   
+                    }
+                )
+
+        else:
+            self.home_page_locators.add_to_cart_btn.nth(0).click()
+            products.append(
+                {
+                    'name': self.home_page_locators.product_name.nth(0).text_content().strip(),
+                    'price': self.home_page_locators.product_price.nth(0).text_content().strip()
+                }
+            )
+            
+        return products

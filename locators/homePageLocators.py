@@ -26,5 +26,9 @@ class HomePageLocators:
 
         #Successfully Login Message
         self.login_success_msg = page.get_by_label("Login Successfully")
-        
         self.product_added_msg = page.get_by_text('Product Added To Cart')
+        
+        #Header
+        self.product_card = page.locator('div.card-body')
+        self.product_name = page.locator('div.card-body').locator('h5')
+        self.product_price = page.locator('div.card-body').locator('div.text-muted')
