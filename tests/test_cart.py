@@ -12,7 +12,7 @@ from pages.cartPage import CartPage
 def test_delete_product(authenticated_page,entry_point,number_of_order):
     home_page = HomePage(authenticated_page)
     home_page.add_to_cart(entry_point,number_of_order)
-    cart_count = home_page.verify_product_added()
+    cart_count = home_page.verify_product_added(number_of_order)
     if cart_count > 0:
         home_page.home_page_locators.cart_btn.nth(0).click()
     cart_page = CartPage(authenticated_page)

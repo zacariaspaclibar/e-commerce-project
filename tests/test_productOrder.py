@@ -9,6 +9,6 @@ from pages.Homepage import HomePage
 def test_add_to_cart(authenticated_page,entry_point,number_of_order):
     home_page = HomePage(authenticated_page)
     home_page.add_to_cart(entry_point,number_of_order)
-    home_page.verify_product_added()
+    home_page.verify_product_added(number_of_order)
     home_page.verify_product_added_banner()
 

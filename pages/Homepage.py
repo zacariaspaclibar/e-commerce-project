@@ -42,13 +42,12 @@ class HomePage:
     def verify_product_added_banner(self):
         expect(self.home_page_locators.product_added_msg).to_be_visible()
         
-    def verify_product_added(self):
+    def verify_product_added(self,number_of_order):
         cart_btn = self.home_page_locators.cart_btn.nth(0).text_content()
         cart_count = re.search(r'\d+',cart_btn)
         result_count = int(cart_count.group())
-        if result_count > 0:
+        if result_count == number_of_order:
             expect(self.home_page_locators.cart_btn.nth(0)).to_contain_text(str(result_count))
-        return result_count
    
     def add_to_cart(self,entry_point,number_of_order):
         if entry_point == 'product_page':
@@ -69,7 +68,6 @@ class HomePage:
                         'price': self.home_page_locators.product_price.nth(i).text_content().strip()   
                     }
                 )
-
         else:
             self.home_page_locators.add_to_cart_btn.nth(0).click()
             products.append(
