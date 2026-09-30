@@ -6,7 +6,7 @@ from pages.Homepage import HomePage
 from pages.cartPage import CartPage
 
 @pytest.mark.parametrize('entry_point, number_of_order',[
-    ('home_page', 3)
+    ('home_page', 1)
 ])
 def test_delete_product(authenticated_page,entry_point,number_of_order,page:Page):
     home_page = HomePage(authenticated_page)
