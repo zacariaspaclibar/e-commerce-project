@@ -15,3 +15,8 @@ class CartPage:
         while self.cart_page_locators.cart_card.count() > 0 :
             self.cart_page_locators.delete_btn.first.click()
         expect(self.cart_page_locators.no_product_banner).to_be_visible()
+        
+    # TODO: Add test case for product order , 
+    # copy the product dictionary then append product id
+    # fill the country field then get the product id match it in the success order page
+    
