@@ -1,10 +1,13 @@
 
 
+from playwright.sync_api import Page
+
+
 class CartPageLocators:
-    def __init__(self,page):
+    def __init__(self,page:Page):
         self.continue_shopping_btn = page.get_by_role('button',name='Continue Shopping')
         self.buy_now_btn = page.get_by_role('button',name='Buy Now')
-        self.delete_btn = page.locator('.btn.btn-danger')
+        self.delete_btn = page.locator('button.btn.btn-danger')
         self.checkout_btn = page.get_by_role('button',name='Checkout')
 
         # text
@@ -21,3 +24,6 @@ class CartPageLocators:
         
         #Banner
         self.no_product_banner = page.get_by_text('No Product in Your Cart')
+        
+        #cart card
+        self.cart_card = page.locator('div.infoWrap')
