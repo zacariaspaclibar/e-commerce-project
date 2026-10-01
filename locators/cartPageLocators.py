@@ -1,6 +1,7 @@
 
 
 from playwright.sync_api import Page
+import re
 
 
 class CartPageLocators:
@@ -12,14 +13,15 @@ class CartPageLocators:
 
         # text
         self.total = (
-    page.locator("li.totalRow")
-    .filter(has=page.locator("span.label", has_text="Total"))
-    .locator("span.value")
+            page.locator("li.totalRow")
+            .filter(has=page.locator("span.label", has_text=re.compile(r"^Total$")))
+            .locator("span.value")
 )
+    
         self.subtotal = (
-    page.locator("li.totalRow")
-    .filter(has=page.locator("span.label", has_text="Subtotal"))
-    .locator("span.value")
+            page.locator("li.totalRow")
+            .filter(has=page.locator('span.label', has_text=re.compile(r'^Subtotal$')))
+            .locator("span.value")
 )
         
         #Banner
@@ -27,3 +29,5 @@ class CartPageLocators:
         
         #cart card
         self.cart_card = page.locator('div.infoWrap')
+        self.cart_product_id = page.locator('div.cartSection').locator('p.itemNumber')
+        self.cart_product_name = page.locator('div.cartSection').locator('h3')

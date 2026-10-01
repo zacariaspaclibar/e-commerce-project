@@ -42,13 +42,13 @@ class HomePage:
     def verify_product_added_banner(self):
         expect(self.home_page_locators.product_added_msg).to_be_visible()
         
-    def verify_product_added(self,number_of_order):
+    def verify_product_added_count(self,number_of_order):
         cart_btn = self.home_page_locators.cart_btn.nth(0).text_content()
         cart_count = re.search(r'\d+',cart_btn)
         result_count = int(cart_count.group())
         if result_count == number_of_order:
             expect(self.home_page_locators.cart_btn.nth(0)).to_contain_text(str(result_count))
-        return result_count
+        self.home_page_locators.cart_btn.nth(0).click()
    
     def add_to_cart(self,entry_point,number_of_order):
         if entry_point == 'product_page':
@@ -56,7 +56,6 @@ class HomePage:
             self.home_page_locators.product_add_to_cart_btn.click()
         elif entry_point == 'home_page':
             return self.number_of_orders(number_of_order)
-    
     
     def number_of_orders(self,number_of_order):
         products = []
@@ -66,7 +65,7 @@ class HomePage:
                 products.append(
                     {
                         'name': self.home_page_locators.product_name.nth(i).text_content().strip(),
-                        'price': self.home_page_locators.product_price.nth(i).text_content().strip()   
+                        'price': self.home_page_locators.product_price.nth(i).text_content().replace('$','').strip()   
                     }
                 )
         else:
@@ -74,8 +73,7 @@ class HomePage:
             products.append(
                 {
                     'name': self.home_page_locators.product_name.nth(0).text_content().strip(),
-                    'price': self.home_page_locators.product_price.nth(0).text_content().strip()
+                    'price': self.home_page_locators.product_price.nth(0).text_content().replace('$','').strip()
                 }
             )
-            
         return products
