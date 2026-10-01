@@ -23,4 +23,6 @@ def test_checkout_order(authenticated_page,entry_point,number_of_order):
     home_page.verify_product_added_count(number_of_order)
     cart_page = CartPage(authenticated_page)
     cart_page.product_checkout(products)
+    
+    
         
