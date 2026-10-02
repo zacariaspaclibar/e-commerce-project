@@ -1,1 +1,0 @@
-# TODO: Transfer all the repeated parameter regarding ording and entry point

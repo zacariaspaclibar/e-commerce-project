@@ -1,17 +1,13 @@
 import pytest
 from pages.Homepage import HomePage
+from data import test_data
 
 def test_green_banner(authenticated_page):
     home_page = HomePage(authenticated_page)
     home_page.verify_green_banner()
     
 @pytest.mark.parametrize(
-    'product_name',[
-        'ADIDAS',
-        'ZARA',
-        'iphone',
-        'adidas'
-    ])
+    'product_name', test_data.LIST_OF_PRODUCTS)
 def test_filter_by_name(authenticated_page,product_name):
     home_page = HomePage(authenticated_page)
     home_page.filter_by_name(product_name)

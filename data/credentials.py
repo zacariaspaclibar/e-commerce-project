@@ -25,7 +25,6 @@ def generate_password():
     random.shuffle(password)
     return "".join(password)
 
-
 INCORRECT_CONFIRM_PASSWORD = generate_password()
 
 BASED_URL = 'https://rahulshettyacademy.com/client'
