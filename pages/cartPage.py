@@ -40,9 +40,4 @@ class CartPage:
         ):
             self.cart_page_locators.checkout_btn.click()
         return products
-        
-        
-    # TODO: Add test case for product order , 
-    # copy the product dictionary then append product id
-    # fill the country field then get the product id match it in the success order page
     

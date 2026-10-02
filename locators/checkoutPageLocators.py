@@ -10,6 +10,7 @@ class CheckoutPageLocators:
         self.country_field = page.get_by_placeholder('Select Country')
         
         #Products
+        self.checkout_order_list = page.locator('div.col-md-5')
         self.checkout_product_name = page.locator('div.item__details').locator('div.item__title')
         self.checkout_product_price = page.locator('div.item__details').locator('div.item__price')
         
