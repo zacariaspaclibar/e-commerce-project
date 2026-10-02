@@ -13,7 +13,3 @@ class CheckoutPageLocators:
         #Products
         self.checkout_product_name = page.locator('div.item__details').locator('div.item__title')
         self.checkout_product_price = page.locator('div.item__details').locator('div.item__price')
-        
-        
-        # 6960eae1c941646b7a8b3ed3
-        # 6abf6a5c2be7a4bc2b828ef2 

@@ -16,13 +16,14 @@ class CartPage:
         while self.cart_page_locators.cart_card.count() > 0 :
             self.cart_page_locators.delete_btn.first.click()
         expect(self.cart_page_locators.no_product_banner).to_be_visible()
-    
-    def adding_product_id(self,products):
-        for i in range(self.cart_page_locators.cart_card.count()):
-            cart_product_id = self.cart_page_locators.cart_product_id.nth(i).text_content().replace('#','').strip()
-            cart_product_name = self.cart_page_locators.cart_product_name.nth(i).text_content().strip()
-            if products[i]['name'] == cart_product_name:
-                products[i]['id'] = cart_product_id
+        
+    def verify_order_in_cart(self,products):
+        order_count = self.cart_page_locators.cart_card.count()
+        for i in range(order_count):
+            if (
+                products[i]['name'] == self.cart_page_locators.cart_product_name.nth(i).text_content().strip()
+            ):
+               return self.get_total_amount(products)
     
     def get_total_amount(self,products):
         total_cart_amount = 0
@@ -31,8 +32,7 @@ class CartPage:
         return total_cart_amount
         
     def product_checkout(self,products):
-        self.adding_product_id(products)
-        total_cart_amount = self.get_total_amount(products)
+        total_cart_amount = self.verify_order_in_cart(products)
         if (
             total_cart_amount == int(self.cart_page_locators.total.text_content().replace('$','').strip()) 
             and 
