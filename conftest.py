@@ -31,3 +31,14 @@ def authenticated_page(browser_init,auth_token):
     browser_init.goto(credentials.BASED_URL)
     
     return browser_init
+
+# # TODO: Need to add the country and productID
+# @pytest.fixture
+# def orderID(auth_token,playwright:Playwright,country,product_order_id):
+#     api_utils = APIUTILS()
+#     return api_utils.order_id(
+#         auth_token1=auth_token,
+#         playwright1=playwright,
+#         country,
+#         product_order_id
+#     )

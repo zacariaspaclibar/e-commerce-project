@@ -19,7 +19,7 @@ def test_delete_product(authenticated_page,entry_point,number_of_order):
     cart_page.verify_delete_cart_items()
 
 @pytest.mark.parametrize('entry_point, number_of_order, country',[
-    test_data.DEFAULT_SINGLE_ORDER_WITH_COUNRTY
+    test_data.DEFAULT_SINGLE_ORDER_WITH_COUNTRY
 ])
 def test_checkout_order(authenticated_page,entry_point,number_of_order,country):
     home_page = HomePage(authenticated_page)
@@ -31,3 +31,10 @@ def test_checkout_order(authenticated_page,entry_point,number_of_order,country):
     checkout_page.fill_shipping_info(country)
     order_details_page = OrderDetailsPage(authenticated_page)
     order_details_page.verify_order_in_cart_match(checkout_products)
+
+
+def test_order_history(authenticated_page):
+    home_page = HomePage(authenticated_page)
+    
+    
+    
