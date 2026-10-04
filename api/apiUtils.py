@@ -13,8 +13,8 @@ class APIUTILS:
         responseBody = response.json()
         return responseBody['token']
     
-    def order_id(self,auth_token,playwright:Playwright,country,product_order_id):
-        api_request_context = playwright.request.new(base_url = credentials.BASED_URL)
+    def order_id(self,auth_token, playwright:Playwright,country,product_order_id):
+        api_request_context = playwright.request.new_context(base_url = credentials.BASED_URL)
         response = api_request_context.post(
             url='/api/ecom/order/create-order',
             data={
@@ -31,5 +31,5 @@ class APIUTILS:
             }
         )
         response_body = response.json()
-        order_id = response_body['order'][0]
+        order_id = response_body['orders'][0]
         return order_id

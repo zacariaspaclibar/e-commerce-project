@@ -1,12 +1,12 @@
-
-from playwright.sync_api import expect
 import pytest
 
+from data import test_data
 from pages.Homepage import HomePage
 from pages.cartPage import CartPage
 from pages.checkoutPage import CheckoutPage
 from pages.orderDetailsPage import OrderDetailsPage
-from data import test_data
+
+from pages.orderHistoryPage import OrderHistoryPage
 
 @pytest.mark.parametrize('entry_point, number_of_order',[
     test_data.DEFAULT_SINGLE_ORDER
@@ -32,9 +32,12 @@ def test_checkout_order(authenticated_page,entry_point,number_of_order,country):
     order_details_page = OrderDetailsPage(authenticated_page)
     order_details_page.verify_order_in_cart_match(checkout_products)
 
-
-def test_order_history(authenticated_page):
-    home_page = HomePage(authenticated_page)
-    
+@pytest.mark.parametrize('country,product_id',[
+    ('Philippines','6960eae1c941646b7a8b3ed3')
+])
+def test_order_history(authenticated_page,auth_token,playwright,country,product_id):
+    order_history_page = OrderHistoryPage(authenticated_page)
+    order_history_page.order_history(auth_token,playwright,country,product_id)
+    order_history_page.verifyOrder()
     
     
