@@ -1,5 +1,5 @@
 import pytest
-from pages.Homepage import HomePage
+from pages.home_page import HomePage
 from data import test_data
 
 @pytest.mark.parametrize('entry_point, number_of_order',[

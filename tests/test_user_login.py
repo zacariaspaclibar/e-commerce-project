@@ -1,6 +1,6 @@
 import pytest
 from data import credentials
-from pages.loginPage import LoginPage
+from pages.login_page import LoginPage
 
 @pytest.mark.parametrize(
         "username,password,status", [

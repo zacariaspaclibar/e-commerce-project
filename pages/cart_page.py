@@ -2,7 +2,7 @@ from playwright.sync_api import Page, expect
 
 from locators.cartPageLocators import CartPageLocators
 from locators.homePageLocators import HomePageLocators
-from pages.Homepage import HomePage
+from pages.home_page import HomePage
 
 
 class CartPage:
