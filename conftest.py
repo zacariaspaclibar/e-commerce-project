@@ -1,7 +1,7 @@
 from playwright.sync_api import Playwright
 import pytest
 
-from api.apiUtils import APIUTILS
+from api.api_utils import ApiUtils
 from data import credentials
 
 @pytest.fixture
@@ -15,7 +15,7 @@ def browser_init(playwright:Playwright):
     
 @pytest.fixture    
 def auth_token(playwright:Playwright):
-    api_utils = APIUTILS()
+    api_utils = ApiUtils()
     
     return api_utils.api_token(
         credentials.EXISTING_EMAIL,

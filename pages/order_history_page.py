@@ -1,7 +1,7 @@
 
 from playwright.sync_api import expect
 
-from api.apiUtils import APIUTILS
+from api.api_utils import ApiUtils
 from locators.homePageLocators import HomePageLocators
 from locators.orderHistoryLocators import OrderHistoryLocators
 
@@ -13,7 +13,7 @@ class OrderHistoryPage:
         self.order_history_locators = OrderHistoryLocators(self.page)
     
     def get_order_id(self,token,playwright,country,product_id):
-        api_utils = APIUTILS()
+        api_utils = ApiUtils()
         return api_utils.order_id(token,playwright,country,product_id)
         
     def order_history(self,token,playwright,country,product_id):
