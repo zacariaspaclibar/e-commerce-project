@@ -1,4 +1,28 @@
+# Environment and secrets
+.env
+.env.*
+!.env.example
+
+# Python
 venv/
+.venv/
 __pycache__/
+*.py[cod]
+
+# Pytest and test outputs
 .pytest_cache/
-data/credentials.py
+reports/
+screenshots/
+logs/
+
+# Coverage and tooling
+htmlcov/
+.coverage
+.mypy_cache/
+.ruff_cache/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
