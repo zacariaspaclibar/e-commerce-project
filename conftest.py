@@ -1,7 +1,9 @@
-from playwright.sync_api import Playwright
 import pytest
-from config.settings import TEST_USER_EMAIL,TEST_USER_PASSWORD,BASE_URL
+from playwright.sync_api import Playwright
+
 from api.api_utils import ApiUtils
+from config.settings import BASE_URL, TEST_USER_EMAIL, TEST_USER_PASSWORD
+
 
 @pytest.fixture
 def browser_init(playwright:Playwright):

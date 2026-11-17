@@ -1,8 +1,17 @@
 import pytest
+
+from config.settings import (
+    FIRST_NAME,
+    LAST_NAME,
+    PHONE_NUMBER,
+    TEST_CONFIRMED_PASSWORD,
+    TEST_USER_EMAIL,
+    TEST_USER_PASSWORD,
+)
+from data import test_data
 from pages.login_page import LoginPage
 from pages.register_page import RegisterPage
-from config.settings import TEST_USER_EMAIL,TEST_USER_PASSWORD,FIRST_NAME,LAST_NAME,TEST_CONFIRMED_PASSWORD,PHONE_NUMBER
-from data import test_data
+
 
 @pytest.mark.parametrize(
     "entry_point",

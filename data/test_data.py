@@ -1,6 +1,7 @@
-import random
+import random  # noqa: I001
 import string
 import uuid
+
 # TODO: Transfer all the repeated parameter regarding ording and entry point
 def generated_email():
     return f'zac_{uuid.uuid4().hex[:8]}@gmail.com'
