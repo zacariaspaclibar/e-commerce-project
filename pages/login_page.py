@@ -1,7 +1,5 @@
 from playwright.sync_api import expect
-
-from data import credentials
-
+from config.settings import BASE_URL
 
 class LoginPage:
     def __init__(self,page):
@@ -28,7 +26,8 @@ class LoginPage:
 
 
     def navigate(self):
-        self.page.goto(credentials.BASED_URL,wait_until="domcontentloaded", timeout=60000)
+        print(BASE_URL)
+        self.page.goto(BASE_URL, wait_until="domcontentloaded", timeout=60000)
 
     def register(self):
         self.register_btn.click()

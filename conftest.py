@@ -1,8 +1,7 @@
 from playwright.sync_api import Playwright
 import pytest
-
+from config.settings import TEST_USER_EMAIL,TEST_USER_PASSWORD,BASE_URL
 from api.api_utils import ApiUtils
-from data import credentials
 
 @pytest.fixture
 def browser_init(playwright:Playwright):
@@ -18,8 +17,8 @@ def auth_token(playwright:Playwright):
     api_utils = ApiUtils()
     
     return api_utils.api_token(
-        credentials.EXISTING_EMAIL,
-        credentials.PASSWORD,
+        TEST_USER_EMAIL,
+        TEST_USER_PASSWORD,
         playwright
     )
 
@@ -28,7 +27,7 @@ def authenticated_page(browser_init,auth_token):
     browser_init.add_init_script(
         f"window.localStorage.setItem('token', '{auth_token}')"
     )
-    browser_init.goto(credentials.BASED_URL)
+    browser_init.goto(BASE_URL)
     
     return browser_init
 

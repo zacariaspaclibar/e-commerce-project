@@ -32,7 +32,3 @@ LIST_OF_PRODUCTS = [
         'iphone',
         'adidas'
     ]
-
-
-INCORRECT_CONFIRM_PASSWORD = generate_password()
-GENERATED_EMAIL_ADDRESS = generated_email()

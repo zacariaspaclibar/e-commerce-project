@@ -1,12 +1,13 @@
 import pytest
-from data import credentials
+from data import test_data
 from pages.login_page import LoginPage
+from config.settings import TEST_USER_EMAIL,TEST_USER_PASSWORD
 
 @pytest.mark.parametrize(
         "username,password,status", [
-            (credentials.EXISTING_EMAIL,credentials.PASSWORD,True),
-            (credentials.EXISTING_EMAIL,credentials.generate_password(),False),
-            (credentials.generated_email(),credentials.PASSWORD,False)
+            (TEST_USER_EMAIL,TEST_USER_PASSWORD,True),
+            (TEST_USER_EMAIL,test_data.generate_password(),False),
+            (test_data.generated_email(),TEST_USER_PASSWORD,False)
         ]
         )
 def test_login_successfully(browser_init,username,password,status):
