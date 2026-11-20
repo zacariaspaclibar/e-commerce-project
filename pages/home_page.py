@@ -1,5 +1,7 @@
-from playwright.sync_api import expect
 import re
+
+from playwright.sync_api import expect
+
 
 class HomePage:
     def __init__(self,page):

@@ -1,10 +1,12 @@
 from playwright.sync_api import Playwright
-from data import credentials
+
+from config.settings import API_BASE_URL
+
 
 class ApiUtils:
    
     def api_token(self,username,password,playwright:Playwright):
-        api_request_context = playwright.request.new_context(base_url=credentials.BASED_URL)
+        api_request_context = playwright.request.new_context(base_url=API_BASE_URL)
         response = api_request_context.post(url='/api/ecom/auth/login',data={
             'userEmail': username,
             'userPassword': password
@@ -14,7 +16,7 @@ class ApiUtils:
         return responseBody['token']
     
     def order_id(self,auth_token, playwright:Playwright,country,product_order_id):
-        api_request_context = playwright.request.new_context(base_url = credentials.BASED_URL)
+        api_request_context = playwright.request.new_context(base_url = API_BASE_URL)
         response = api_request_context.post(
             url='/api/ecom/order/create-order',
             data={

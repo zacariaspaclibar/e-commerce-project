@@ -1,6 +1,8 @@
 import pytest
-from pages.home_page import HomePage
+
 from data import test_data
+from pages.home_page import HomePage
+
 
 def test_green_banner(authenticated_page):
     home_page = HomePage(authenticated_page)

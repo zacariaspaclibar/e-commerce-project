@@ -8,6 +8,7 @@ load_dotenv(PROJECT_ROOT / ".env")
 
 # Goto URL
 BASE_URL = os.getenv("BASE_URL")
+API_BASE_URL = os.getenv("API_BASE_URL")
 
 # Login Creds
 TEST_USER_EMAIL = os.getenv("EXISTING_EMAIL")
