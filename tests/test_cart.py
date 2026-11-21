@@ -1,12 +1,12 @@
 import pytest
 
 from data import test_data
-from pages.home_page import HomePage
 from pages.cart_page import CartPage
 from pages.checkout_page import CheckoutPage
+from pages.home_page import HomePage
+from pages.order_history_page import OrderHistoryPage
 from pages.orderDetailsPage import OrderDetailsPage
 
-from pages.order_history_page import OrderHistoryPage
 
 @pytest.mark.parametrize('entry_point, number_of_order',[
     test_data.DEFAULT_SINGLE_ORDER

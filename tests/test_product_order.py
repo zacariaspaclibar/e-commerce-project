@@ -1,6 +1,8 @@
 import pytest
-from pages.home_page import HomePage
+
 from data import test_data
+from pages.home_page import HomePage
+
 
 @pytest.mark.parametrize('entry_point, number_of_order',[
     test_data.ALTERNATIVE_SINGLE_ORDER,
