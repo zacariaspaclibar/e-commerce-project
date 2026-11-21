@@ -10,13 +10,13 @@ from config.settings import TEST_USER_EMAIL,TEST_USER_PASSWORD
             (test_data.generated_email(),TEST_USER_PASSWORD,False)
         ]
         )
-def test_login_successfully(browser_init,username,password,status):
-    login_page = LoginPage(browser_init)
+def test_login_successfully(page,username,password,status):
+    login_page = LoginPage(page)
     login_page.navigate()
     login_page.account_login(username,password)
     login_page.verify_login_status(status)
 
-def test_login_empty_field(browser_init):
-    login_page = LoginPage(browser_init)
+def test_login_empty_field(page):
+    login_page = LoginPage(page)
     login_page.navigate()
     login_page.login_empty_field()

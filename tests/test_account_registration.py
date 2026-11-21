@@ -20,9 +20,9 @@ from pages.register_page import RegisterPage
         "Don't have an account?"
     ]
 )
-def test_account_successfully_register(browser_init,entry_point):
-    login_page = LoginPage(browser_init)
-    register_page = RegisterPage(browser_init)
+def test_account_successfully_register(page,entry_point):
+    login_page = LoginPage(page)
+    register_page = RegisterPage(page)
     login_page.navigate()
     login_page.registration_entry_point(entry_point)
     register_page.account_registration(
@@ -36,9 +36,9 @@ def test_account_successfully_register(browser_init,entry_point):
     register_page.verify_registration_success()
 
 
-def test_email_already_exist(browser_init):
-    login_page = LoginPage(browser_init)
-    register_page = RegisterPage(browser_init)
+def test_email_already_exist(page):
+    login_page = LoginPage(page)
+    register_page = RegisterPage(page)
 
     login_page.navigate()
     login_page.register()
@@ -53,10 +53,10 @@ def test_email_already_exist(browser_init):
     )
     register_page.verify_email_exist()
 
-def test_password_not_match(browser_init):
-    login_page = LoginPage(browser_init)
+def test_password_not_match(page):
+    login_page = LoginPage(page)
     login_page.navigate()
-    register_page = RegisterPage(browser_init)
+    register_page = RegisterPage(page)
     login_page.register()
     register_page.account_registration(
         FIRST_NAME,
@@ -68,9 +68,9 @@ def test_password_not_match(browser_init):
     )
     register_page.verify_password_mismatch()
 
-def test_registration_empty_field(browser_init):
-    login_page = LoginPage(browser_init)
-    register_page = RegisterPage(browser_init)
+def test_registration_empty_field(page):
+    login_page = LoginPage(page)
+    register_page = RegisterPage(page)
 
     login_page.navigate()
     login_page.register()
